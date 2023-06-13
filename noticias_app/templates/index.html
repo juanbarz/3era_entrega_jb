@@ -1,19 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Noticias</title>
-</head>
-<body>
-    <h1>Noticias</h1>
-    <ul>
-        {% for noticia in noticias %}
-            <li>
-                <h2>{{ noticia.titulo }}</h2>
-                <p>{{ noticia.contenido }}</p>
-                <p>Categoría: {{ noticia.categoria }}</p>
-                <p>Fecha de publicación: {{ noticia.fecha_publicacion }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}NOTICIAS APP{% endblock %}
+
+{% block content %}
+    <section>
+        <h1>Bienvenido a la Página de Inicio de Noticias APP</h1>
+        <p>Explora las últimas noticias y mantenete actualizado.</p>
+        <a href="/agregar-noticia/">Agregar Noticia</a>
+    </section>
+
+    <section>
+        <h2>Últimas Noticias</h2>
+        <div>
+            <h3>Título de la Noticia 1</h3>
+            <p>Contenido de la noticia 1</p>
+            <a href="#">Leer más</a>
+        </div>
+        <div>
+            <h3>Título de la Noticia 2</h3>
+            <p>Contenido de la noticia 2</p>
+            <a href="#">Leer más</a>
+        </div>
+        <div>
+            <h3>Título de la Noticia 3</h3>
+            <p>Contenido de la noticia 3</p>
+            <a href="#">Leer más</a>
+        </div>
+    </section>
+{% endblock %}

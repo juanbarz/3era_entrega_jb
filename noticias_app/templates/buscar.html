@@ -1,14 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Buscar</title>
-</head>
-<body>
-    <h1>Buscar Noticias</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Buscar</button>
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Buscar{% endblock %}
+
+{% block content %}
+    <section>
+        <h1>Buscar</h1>
+        <form method="GET" action="{% url 'buscar' %}">
+            <div>
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" value="{{ request.GET.titulo }}">
+            </div>
+            <div>
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria">
+                    <option value="">Todas</option>
+                    <option value="tecnologia" {% if request.GET.categoria == "tecnologia" %}selected{% endif %}>Tecnología</option>
+                    <option value="deportes" {% if request.GET.categoria == "deportes" %}selected{% endif %}>Deportes</option>
+                    <option value="entretenimiento" {% if request.GET.categoria == "entretenimiento" %}selected{% endif %}>Entretenimiento</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Buscar</button>
+            </div>
+        </form>
+
+        <h2>Resultados de la búsqueda</h2>
+        <ul>
+            {% for noticia in noticias %}
+                <li>
+                    <h3>{{ noticia.titulo }}</h3>
+                    <p>{{ noticia.contenido }}</p>
+                </li>
+            {% empty %}
+                <li>No se encontraron noticias.</li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

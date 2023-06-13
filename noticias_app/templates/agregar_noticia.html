@@ -1,14 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Agregar Noticia</title>
-</head>
-<body>
-    <h1>Agregar Noticia</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Agregar Noticia{% endblock %}
+
+{% block content %}
+    <section>
+        <h1>Agregar Noticia</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div>
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+            </div>
+            <div>
+                <label for="contenido">Contenido:</label>
+                <textarea id="contenido" name="contenido" rows="4" required></textarea>
+            </div>
+            <div>
+                <label for="categoria">Categoría:</label>
+                <select id="categoria" name="categoria" required>
+                    <option value="tecnologia">Tecnología</option>
+                    <option value="deportes">Deportes</option>
+                    <option value="entretenimiento">Entretenimiento</option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+    </section>
+{% endblock %}
