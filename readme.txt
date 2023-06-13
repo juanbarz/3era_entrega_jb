@@ -1,4 +1,4 @@
-Proyecto Django - Página de Noticias
+Proyecto Django - Sitio de noticias
 Este proyecto Django es una página de noticias desarrollada utilizando el patrón MVT (Modelo-Vista-Plantilla). 
 Proporciona funcionalidades básicas como agregar noticias, buscar en la base de datos y visualizar las noticias existentes
 
