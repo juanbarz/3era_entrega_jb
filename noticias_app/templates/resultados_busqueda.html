@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados de búsqueda</title>
+</head>
+<body>
+    <h1>Resultados de búsqueda para "{{ termino_busqueda }}"</h1>
+    <ul>
+        {% for noticia in noticias %}
+            <li>
+                <h2>{{ noticia.titulo }}</h2>
+                <p>{{ noticia.contenido }}</p>
+                <p>Categoría: {{ noticia.categoria }}</p>
+                <p>Fecha de publicación: {{ noticia.fecha_publicacion }}</p>
+            </li>
+        {% empty %}
+            <li>No se encontraron noticias</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
